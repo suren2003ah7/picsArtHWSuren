@@ -19,6 +19,6 @@ public class Main {
         System.out.println("salary: " + salary);
         System.out.println("Favorite number: " + favoriteNumber);
         System.out.println("Loves picsArt?: " + lovesPicsArt);
-        System.out.println(":)");
+        System.out.println(":)"); //
     }
 }
