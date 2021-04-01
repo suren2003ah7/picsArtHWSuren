@@ -14,6 +14,9 @@ public class Lesson2 {
         double mean = sum / (double) 4;
         int prod = a * b * c * d;
         System.out.println(a++ + " " + ++a + " " + sum + " " + mean + " " + prod);
+        System.out.println(a & b);
+        System.out.println(a | b);
+        System.out.println(a ^ b);
         if (a > b){
             System.out.println("a is bigger than b");
         }
@@ -23,6 +26,14 @@ public class Lesson2 {
         else{
             System.out.println("a is equal to b");
         }
+
+        if (b >= c && a < d || c >= a && b <= d){
+            System.out.println("yah");
+        }
+        else{
+            System.out.println("nah");
+        }
+        System.out.println(a > 7 ? "yes" : "no");
         arr[3] = d;
         System.out.println("array length: " + arr.length + ", first item: " + arr[0]);
     }
