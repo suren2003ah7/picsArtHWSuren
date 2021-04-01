@@ -2,7 +2,7 @@ package com.company.lesson2;
 
 public class Lesson2 {
     int a, b, c, d;
-    int[] arr = {7, 6, 4, 6, 4};
+    int[] arr = {3, 9, -9, 29, 0};
     public Lesson2(int e, int f, int g, int h){
         a = e;
         b = f;
