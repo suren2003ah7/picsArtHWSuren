@@ -22,4 +22,11 @@ public class Public {
         }
         System.out.println(sum1 - sum2);
     }
+    public void Solution2(){
+        int result = arr[0];
+        for (int i = 1; i < arr.length; i++){
+            result^=arr[i];
+        }
+        System.out.println(result);
+    }
 }
