@@ -182,10 +182,16 @@ public class TaxiService {
     }
 
     public Taxi minimalCost(Taxi[] taxis){
-        Taxi minimal = taxis[0];
-        for (int i = 1; i < taxis.length; i++){
-            if (minimal.getCost() > taxis[i].getCost()){
-                minimal = taxis[i];
+        Taxi minimal = null;
+        for (int i = 0; i < taxis.length; i++){
+            if (taxis[i].isSport()){
+                if (minimal == null){
+                    minimal = taxis[i];
+                    continue;
+                }
+                if (minimal.getCost() > taxis[i].getCost()) {
+                    minimal = taxis[i];
+                }
             }
         }
         System.out.println("taxi with minimal cost: " + minimal.getName());

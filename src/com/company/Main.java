@@ -1,68 +1,39 @@
 package com.company;
-import com.company.exam1.*;
+/*import com.company.project.*;
+import com.company.project.games.NumberGuesser;
+import com.company.project.games.SuperMario;
+import com.company.project.games.Trivia;*/
 
-import java.util.Scanner;
+import com.company.lesson9.FileService;
+import com.company.lesson9.Student;
+import com.company.lesson9.StudentService;
 
 public class Main {
-
     public static void main(String[] args) {
-        TaxiService service = new TaxiService();
-        Scanner sc = new Scanner(System.in);
+        String[] s = FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\lesson9\\test.txt");
+        Student[] students = stringToStudentConverter(s);
 
-        Taxi t1 = new Taxi();
-        Taxi t2 = new Taxi();
-        Taxi t3 = new Taxi();
-        t1 = service.create(t1);
-        t2 = service.create(t2);
-        t3 = service.create(t3);
-        Taxi[] taxis = {t1, t2, t3};
-        boolean b = true;
-        while(b){
-            System.out.println("=====================================");
-            System.out.println("Select options from below");
-            System.out.println("1. Prints info about the taxi based on if it's a sport one or not.");
-            System.out.println("2. Returns the newest taxi form the two.");
-            System.out.println("3. Prints the country of the taxi with the smallest amount of seats.");
-            System.out.println("4. Prints info about all non-sport taxis.");
-            System.out.println("5. Prints info about sport taxis which has a decent milage.");
-            System.out.println("6. Returns the taxi with the minimal weight.");
-            System.out.println("7. Returns the taxi with the minimal cost.");
-            System.out.println("8. Prints all taxis from the oldest to the newest.");
-            System.out.println("9. Exit.");
-            System.out.println("=====================================");
-            int i = sc.nextInt();
-            switch (i){
-                case 1:
-                    service.printStuff(t2);
-                    break;
-                case 2:
-                    service.newest(t1, t3);
-                    break;
-                case 3:
-                    service.countryOfTheSmallest(t1, t2, t3);
-                    break;
-                case 4:
-                    service.noSportTaxis(taxis);
-                    break;
-                case 5:
-                    service.sportLongRunnerTaxis(taxis);
-                    break;
-                case 6:
-                    service.minimalWeight(taxis);
-                    break;
-                case 7:
-                    service.minimalCost(taxis);
-                    break;
-                case 8:
-                    service.fromOldestToNewest(taxis);
-                    break;
-                case 9:
-                    b = false;
-                    break;
-                default:
-                    System.out.println("Wrong input!");
-                    break;
-            }
+        StudentService.printNames(students);
+        StudentService.printMaleStudents(students);
+        StudentService.printBigBrainFemaleStudents(students);
+        StudentService.minimalMarkStudent(students);
+        StudentService.biggestMale(students);
+        StudentService.sortByMark(students);
+        StudentService.sortFemaleByYear(students);
+    }
+
+    public static Student[] stringToStudentConverter(String[] a){
+        Student[] h = new Student[a.length];
+        for (int i = 0; i < a.length; i++){
+            String[] s = a[i].split(",");
+            Student h1 = new Student();
+            h1.setName(s[0]);
+            h1.setSurname(s[1]);
+            h1.setYear(Integer.parseInt(s[2]));
+            h1.setGender(s[3].charAt(0));
+            h1.setMark(Double.parseDouble(s[4]));
+            h[i] = h1;
         }
+        return h;
     }
 }
