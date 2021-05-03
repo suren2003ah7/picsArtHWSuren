@@ -1,0 +1,31 @@
+import com.company.lesson9.FileService;
+import com.company.lesson9.Student;
+import com.company.lesson9.StudentService;
+
+public static void main(String[] args) {
+        String[] s = FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\lesson9\\test.txt");
+        Student[] students = stringToStudentConverter(s);
+
+        StudentService.printNames(students);
+        StudentService.printMaleStudents(students);
+        StudentService.printBigBrainFemaleStudents(students);
+        StudentService.minimalMarkStudent(students);
+        StudentService.biggestMale(students);
+        StudentService.sortByMark(students);
+        StudentService.sortFemaleByYear(students);
+    }
+
+    public static Student[] stringToStudentConverter(String[] a){
+        Student[] h = new Student[a.length];
+        for (int i = 0; i < a.length; i++){
+            String[] s = a[i].split(",");
+            Student h1 = new Student();
+            h1.setName(s[0]);
+            h1.setSurname(s[1]);
+            h1.setYear(Integer.parseInt(s[2]));
+            h1.setGender(s[3].charAt(0));
+            h1.setMark(Double.parseDouble(s[4]));
+            h[i] = h1;
+        }
+        return h;
+    }
