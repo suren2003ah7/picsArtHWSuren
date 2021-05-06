@@ -3,10 +3,11 @@ package com.company.project.menus;
 import com.company.project.supportEquipment.Computer;
 import com.company.project.supportEquipment.ComputerService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ComputerMenu {
-    public static void run(Computer[] comps){
+    public static void run(ArrayList<Computer> comps){
         Scanner sc = new Scanner(System.in);
         boolean bbb = true;
         while(bbb){
@@ -44,7 +45,7 @@ public class ComputerMenu {
                     break;
                 case 4:
                     try{
-                        comps[0].printStaffData();
+                        comps.get(0).printStaffData();
                     }
                     catch (NullPointerException e){
                         System.out.println("There are no such entities");

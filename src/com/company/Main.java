@@ -3,7 +3,7 @@ import com.company.project.*;
 import com.company.project.menus.Menu;
 import com.company.project.supportEquipment.*;
 
-import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -20,53 +20,53 @@ public class Main {
                 case 1:
                     System.out.println("How many animatronics do you want to enter");
                     int a1 = sc.nextInt();
-                    Animatronic[] anims1 = new Animatronic[a1];
+                    ArrayList<Animatronic> anims1 = new ArrayList<>();
                     System.out.println("How many arcade games do you want to enter");
                     int g1 = sc.nextInt();
-                    ArcadeGame[] games1 = new ArcadeGame[g1];
+                    ArrayList<ArcadeGame> games1 = new ArrayList<>();
                     System.out.println("How many computers do you want to enter");
                     int c1 = sc.nextInt();
-                    Computer[] comps1 = new Computer[c1];
+                    ArrayList<Computer> comps1 = new ArrayList<>();
                     System.out.println("How many lights do you want to enter");
                     int l1 = sc.nextInt();
-                    Light[] lights1 = new Light[l1];
+                    ArrayList<Light> lights1 = new ArrayList<>();
                     System.out.println("How many speakers games do you want to enter");
                     int s1 = sc.nextInt();
-                    Speaker[] speakers1 = new Speaker[s1];
+                    ArrayList<Speaker> speakers1 = new ArrayList<>();
 
                     for (int j = 0; j < a1; j++){
-                        anims1[j] = AnimatronicService.create();
+                        anims1.add(AnimatronicService.create());
                     }
 
                     for (int j = 0; j < g1; j++){
-                        games1[j] = ArcadeGameService.create();
+                        games1.add(ArcadeGameService.create());
                     }
 
                     for (int j = 0; j < c1; j++){
-                        comps1[j] = ComputerService.create();
+                        comps1.add(ComputerService.create());
                     }
 
                     for (int j = 0; j < l1; j++){
-                        lights1[j] = LightService.create();
+                        lights1.add(LightService.create());
                     }
 
                     for (int j = 0; j < s1; j++){
-                        speakers1[j] = SpeakerService.create();
+                        speakers1.add(SpeakerService.create());
                     }
                     Menu.run(anims1, games1, comps1, lights1, speakers1);
                     break;
                 case 2:
-                    String[] a = FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\animatronics.txt");
-                    String[] g = FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\arcadegames.txt");
-                    String[] c = FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\computers.txt");
-                    String[] l = FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\lights.txt");
-                    String[] s = FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\speakers.txt");
+                    ArrayList<String> a = (ArrayList<String>) FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\animatronics.txt");
+                    ArrayList<String> g = (ArrayList<String>) FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\arcadegames.txt");
+                    ArrayList<String> c = (ArrayList<String>) FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\computers.txt");
+                    ArrayList<String> l = (ArrayList<String>) FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\lights.txt");
+                    ArrayList<String> s = (ArrayList<String>) FileService.readFile("C:\\Users\\ZenBook\\IdeaProjects\\PicsArtHW\\src\\com\\company\\project\\info\\speakers.txt");
 
-                    Animatronic[] anims = AnimatronicService.convert(a);
-                    ArcadeGame[] games = ArcadeGameService.convert(g);
-                    Computer[] comps = ComputerService.convert(c);
-                    Light[] lights = LightService.convert(l);
-                    Speaker[] speakers = SpeakerService.convert(s);
+                    ArrayList<Animatronic> anims = AnimatronicService.convert(a);
+                    ArrayList<ArcadeGame> games = ArcadeGameService.convert(g);
+                    ArrayList<Computer> comps = ComputerService.convert(c);
+                    ArrayList<Light> lights = LightService.convert(l);
+                    ArrayList<Speaker> speakers = SpeakerService.convert(s);
                     Menu.run(anims, games, comps, lights, speakers);
                     break;
                 case 3:

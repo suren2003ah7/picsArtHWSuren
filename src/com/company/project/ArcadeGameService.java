@@ -2,6 +2,8 @@ package com.company.project;
 import com.company.project.games.NumberGuesser;
 import com.company.project.games.SuperMario;
 import com.company.project.games.Trivia;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ArcadeGameService {
@@ -9,7 +11,7 @@ public class ArcadeGameService {
         Scanner sc = new Scanner(System.in);
         ArcadeGame game;
         System.out.println("What type of arcade game you want?");
-        String type = sc.next();
+        String type = sc.nextLine();
         if (type.equals("number guesser")){
             game = new NumberGuesser();
         }
@@ -25,7 +27,7 @@ public class ArcadeGameService {
         }
 
         System.out.println("Enter the name of the arcade game");
-        String name = sc.next();
+        String name = sc.nextLine();
         game.setName(name);
 
         System.out.println("Enter the condition of the arcade game (out of order, bad, normal, good, new)");
@@ -51,10 +53,10 @@ public class ArcadeGameService {
         return game;
     }
 
-    public static ArcadeGame[] convert(String[] s){
-        ArcadeGame[] games = new ArcadeGame[s.length];
-        for (int i = 0; i < s.length; i++){
-            String[] temp_string = s[i].split(",");
+    public static ArrayList<ArcadeGame> convert(ArrayList<String> s){
+        ArrayList<ArcadeGame> games = new ArrayList<>();
+        for (int i = 0; i < s.size(); i++){
+            String[] temp_string = s.get(i).split(",");
             ArcadeGame temp_game;
             if (temp_string[0].equals("number guesser")){
                 temp_game = new NumberGuesser();
@@ -75,62 +77,62 @@ public class ArcadeGameService {
             temp_game.setWeight(Double.parseDouble(temp_string[4]));
             temp_game.setSerialCode(temp_string[5]);
             temp_game.setHighScore(Integer.parseInt(temp_string[6]));
-            games[i] = temp_game;
+            games.add(temp_game);
         }
         return games;
     }
 
-    public static void printAllGames(ArcadeGame[] games){
-        if (games == null || games.length == 0){
+    public static void printAllGames(ArrayList<ArcadeGame> games){
+        if (games == null || games.size() == 0){
             System.out.println("There are no games");
             return;
         }
-        for (int i = 0; i < games.length; i++){
-            games[i].info();
+        for (int i = 0; i < games.size(); i++){
+            games.get(i).info();
         }
     }
 
-    public static void turnAllOn(ArcadeGame[] games){
-        if (games == null || games.length == 0){
+    public static void turnAllOn(ArrayList<ArcadeGame> games){
+        if (games == null || games.size() == 0){
             System.out.println("There are no games");
             return;
         }
-        for (int i = 0; i < games.length; i++){
-            games[i].turnOn();
+        for (int i = 0; i < games.size(); i++){
+            games.get(i).turnOn();
         }
     }
 
-    public static void turnAllOff(ArcadeGame[] games){
-        if (games == null || games.length == 0){
+    public static void turnAllOff(ArrayList<ArcadeGame> games){
+        if (games == null || games.size() == 0){
             System.out.println("There are no games");
             return;
         }
-        for (int i = 0; i < games.length; i++){
-            games[i].turnOff();
+        for (int i = 0; i < games.size(); i++){
+            games.get(i).turnOff();
         }
     }
 
-    public static void playAll(ArcadeGame[] games){
-        if (games == null || games.length == 0){
+    public static void playAll(ArrayList<ArcadeGame> games){
+        if (games == null || games.size() == 0){
             System.out.println("There are no games");
             return;
         }
-        for (int i = 0; i < games.length; i++){
-            games[i].play();
+        for (int i = 0; i < games.size(); i++){
+            games.get(i).play();
         }
     }
 
-    public static void printHighest(ArcadeGame[] games){
-        if (games == null || games.length == 0){
+    public static void printHighest(ArrayList<ArcadeGame> games){
+        if (games == null || games.size() == 0){
             System.out.println("There are no games");
             return;
         }
-        ArcadeGame arc = games[0];
-        for (int i = 1; i < games.length; i++){
-            if (arc.getHighScore() < games[i].getHighScore()){
+        ArcadeGame arc = games.get(0);
+        for (int i = 1; i < games.size(); i++){
+            if (arc.getHighScore() < games.get(i).getHighScore()){
                 ArcadeGame temp = arc;
-                arc = games[i];
-                games[i] = temp;
+                arc = games.get(i);
+                games.set(i, temp);
             }
         }
         arc.info();

@@ -3,6 +3,8 @@ import com.company.project.animatronics.Bear;
 import com.company.project.animatronics.Chicken;
 import com.company.project.animatronics.Fox;
 import com.company.project.animatronics.Rabbit;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AnimatronicService {
@@ -29,7 +31,7 @@ public class AnimatronicService {
         }
 
         System.out.println("Enter the name of the animatronic");
-        String name = sc.next();
+        String name = sc.nextLine();
         anim.setName(name);
 
         System.out.println("Enter the condition of the animatronic (out of order, bad, normal, good, new)");
@@ -55,10 +57,10 @@ public class AnimatronicService {
         return anim;
     }
 
-    public static Animatronic[] convert(String[] s){
-        Animatronic[] anims = new Animatronic[s.length];
-        for (int i = 0; i < s.length; i++){
-            String[] temp_string = s[i].split(",");
+    public static ArrayList<Animatronic> convert(ArrayList<String> s){
+        ArrayList<Animatronic> anims = new ArrayList<>();
+        for (int i = 0; i < s.size(); i++){
+            String[] temp_string = s.get(i).split(",");
             Animatronic temp_anim;
             if (temp_string[0].equals("bear")){
                 temp_anim = new Bear();
@@ -83,114 +85,114 @@ public class AnimatronicService {
             temp_anim.setWeight(Double.parseDouble(temp_string[4]));
             temp_anim.setSerialCode(temp_string[5]);
             temp_anim.setHeight(Double.parseDouble(temp_string[6]));
-            anims[i] = temp_anim;
+            anims.add(temp_anim);
         }
         return anims;
     }
 
-    public static void printAllInfo(Animatronic[] anims){
-        if (anims == null || anims.length == 0){
+    public static void printAllInfo(ArrayList<Animatronic> anims){
+        if (anims == null || anims.size() == 0){
             System.out.println("There are no animatronics");
             return;
         }
-        for (int i = 0; i < anims.length; i++){
-            anims[i].info();
+        for (int i = 0; i < anims.size(); i++){
+            anims.get(i).info();
             System.out.println();
         }
     }
 
-    public static void turnAllOn(Animatronic[] anims){
-        if (anims == null || anims.length == 0){
+    public static void turnAllOn(ArrayList<Animatronic> anims){
+        if (anims == null || anims.size() == 0){
             System.out.println("There are no animatronics");
             return;
         }
-        for (int i = 0; i < anims.length; i++){
-            anims[i].turnOn();
+        for (int i = 0; i < anims.size(); i++){
+            anims.get(i).turnOn();
         }
     }
 
-    public static void turnAllOff(Animatronic[] anims){
-        if (anims == null || anims.length == 0){
+    public static void turnAllOff(ArrayList<Animatronic> anims){
+        if (anims == null || anims.size() == 0){
             System.out.println("There are no animatronics");
             return;
         }
-        for (int i = 0; i < anims.length; i++){
-            anims[i].turnOff();
+        for (int i = 0; i < anims.size(); i++){
+            anims.get(i).turnOff();
         }
     }
 
-    public static void concert(Animatronic[] anims){
-        if (anims == null || anims.length == 0){
+    public static void concert(ArrayList<Animatronic> anims){
+        if (anims == null || anims.size() == 0){
             System.out.println("There are no animatronics");
             return;
         }
-        for (int i = 0; i < anims.length; i++){
-            anims[i].sing();
-            anims[i].dance();
-            if (anims[i].getAnimal().equals("bear")){
-                Bear temp = (Bear) anims[i];
+        for (int i = 0; i < anims.size(); i++){
+            anims.get(i).sing();
+            anims.get(i).dance();
+            if (anims.get(i).getAnimal().equals("bear")){
+                Bear temp = (Bear) anims.get(i);
                 temp.playMusicBox();
                 temp.laugh();
             }
-            else if (anims[i].getAnimal().equals("rabbit")){
-                Rabbit temp = (Rabbit) anims[i];
+            else if (anims.get(i).getAnimal().equals("rabbit")){
+                Rabbit temp = (Rabbit) anims.get(i);
                 temp.playGuitar();
             }
-            else if (anims[i].getAnimal().equals("fox")){
-                Fox temp = (Fox) anims[i];
+            else if (anims.get(i).getAnimal().equals("fox")){
+                Fox temp = (Fox) anims.get(i);
                 temp.rolePlay();
             }
-            else if (anims[i].getAnimal().equals("chicken")){
-                Chicken temp = (Chicken) anims[i];
+            else if (anims.get(i).getAnimal().equals("chicken")){
+                Chicken temp = (Chicken) anims.get(i);
                 temp.deliverCupcake();
             }
         }
     }
 
-    public static void viewAllBears(Animatronic[] anims){
-        if (anims == null || anims.length == 0){
+    public static void viewAllBears(ArrayList<Animatronic> anims){
+        if (anims == null || anims.size() == 0){
             System.out.println("There are no animatronics");
             return;
         }
-        for (int i = 0; i < anims.length; i++){
-            if (anims[i].getAnimal().equals("bear")){
-                anims[i].info();
+        for (int i = 0; i < anims.size(); i++){
+            if (anims.get(i).getAnimal().equals("bear")){
+                anims.get(i).info();
             }
         }
     }
 
-    public static void viewAllRabbits(Animatronic[] anims){
-        if (anims == null || anims.length == 0){
+    public static void viewAllRabbits(ArrayList<Animatronic> anims){
+        if (anims == null || anims.size() == 0){
             System.out.println("There are no animatronics");
             return;
         }
-        for (int i = 0; i < anims.length; i++){
-            if (anims[i].getAnimal().equals("rabbit")){
-                anims[i].info();
+        for (int i = 0; i < anims.size(); i++){
+            if (anims.get(i).getAnimal().equals("rabbit")){
+                anims.get(i).info();
             }
         }
     }
 
-    public static void viewAllChickens(Animatronic[] anims){
-        if (anims == null || anims.length == 0){
+    public static void viewAllChickens(ArrayList<Animatronic> anims){
+        if (anims == null || anims.size() == 0){
             System.out.println("There are no animatronics");
             return;
         }
-        for (int i = 0; i < anims.length; i++){
-            if (anims[i].getAnimal().equals("chicken")){
-                anims[i].info();
+        for (int i = 0; i < anims.size(); i++){
+            if (anims.get(i).getAnimal().equals("chicken")){
+                anims.get(i).info();
             }
         }
     }
 
-    public static void viewAllFoxes(Animatronic[] anims){
-        if (anims == null || anims.length == 0){
+    public static void viewAllFoxes(ArrayList<Animatronic> anims){
+        if (anims == null || anims.size() == 0){
             System.out.println("There are no animatronics");
             return;
         }
-        for (int i = 0; i < anims.length; i++){
-            if (anims[i].getAnimal().equals("fox")){
-                anims[i].info();
+        for (int i = 0; i < anims.size(); i++){
+            if (anims.get(i).getAnimal().equals("fox")){
+                anims.get(i).info();
             }
         }
     }

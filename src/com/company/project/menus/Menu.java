@@ -6,10 +6,11 @@ import com.company.project.ArcadeGame;
 import com.company.project.ArcadeGameService;
 import com.company.project.supportEquipment.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu{
-    public static void run(Animatronic[] anims, ArcadeGame[] games, Computer[] comps, Light[] lights, Speaker[] speakers) {
+    public static void run(ArrayList<Animatronic> anims, ArrayList<ArcadeGame> games, ArrayList<Computer> comps, ArrayList<Light> lights, ArrayList<Speaker> speakers) {
         Scanner sc = new Scanner(System.in);
         boolean bb = true;
         while (bb){

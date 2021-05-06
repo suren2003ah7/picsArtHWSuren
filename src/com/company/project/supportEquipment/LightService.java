@@ -1,5 +1,6 @@
 package com.company.project.supportEquipment;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LightService {
@@ -8,7 +9,7 @@ public class LightService {
         Light l = new Light();
 
         System.out.println("Enter the name of the light");
-        String name = sc.next();
+        String name = sc.nextLine();
         l.setName(name);
 
         System.out.println("Enter the condition of the light (out of order, bad, normal, good, new)");
@@ -34,10 +35,10 @@ public class LightService {
         return l;
     }
 
-    public static Light[] convert(String[] s){
-        Light[] lights = new Light[s.length];
-        for (int i = 0; i < s.length; i++){
-            String[] temp_string = s[i].split(",");
+    public static ArrayList<Light> convert(ArrayList<String> s){
+        ArrayList<Light> lights = new ArrayList<>();
+        for (int i = 0; i < s.size(); i++){
+            String[] temp_string = s.get(i).split(",");
             Light temp = new Light();
             temp.setName(temp_string[0]);
             temp.setCondition(temp_string[1]);
@@ -45,38 +46,38 @@ public class LightService {
             temp.setWeight(Double.parseDouble(temp_string[3]));
             temp.setSerialCode(temp_string[4]);
             temp.setLightColor(temp_string[5]);
-            lights[i] = temp;
+            lights.add(temp);
         }
         return lights;
     }
 
-    public static void printAllInfo(Light[] lights){
-        if (lights == null || lights.length == 0){
+    public static void printAllInfo(ArrayList<Light> lights){
+        if (lights == null || lights.size() == 0){
             System.out.println("There are no lights");
             return;
         }
-        for (int i = 0; i < lights.length; i++){
-            lights[i].info();
+        for (int i = 0; i < lights.size(); i++){
+            lights.get(i).info();
         }
     }
 
-    public static void turnAllOn(Light[] lights){
-        if (lights == null || lights.length == 0){
+    public static void turnAllOn(ArrayList<Light> lights){
+        if (lights == null || lights.size() == 0){
             System.out.println("There are no lights");
             return;
         }
-        for (int i = 0; i < lights.length; i++){
-            lights[i].turnOn();
+        for (int i = 0; i < lights.size(); i++){
+            lights.get(i).turnOn();
         }
     }
 
-    public static void turnAllOff(Light[] lights){
-        if (lights == null || lights.length == 0){
+    public static void turnAllOff(ArrayList<Light> lights){
+        if (lights == null || lights.size() == 0){
             System.out.println("There are no lights");
             return;
         }
-        for (int i = 0; i < lights.length; i++){
-            lights[i].turnOff();
+        for (int i = 0; i < lights.size(); i++){
+            lights.get(i).turnOff();
         }
     }
 }

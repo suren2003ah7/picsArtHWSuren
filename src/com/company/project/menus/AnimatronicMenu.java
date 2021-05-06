@@ -3,10 +3,11 @@ package com.company.project.menus;
 import com.company.project.Animatronic;
 import com.company.project.AnimatronicService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AnimatronicMenu {
-    public static void run(Animatronic[] anims){
+    public static void run(ArrayList<Animatronic> anims){
         Scanner sc = new Scanner(System.in);
         boolean bbb = true;
         while(bbb){

@@ -3,10 +3,11 @@ package com.company.project.menus;
 import com.company.project.supportEquipment.Light;
 import com.company.project.supportEquipment.LightService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LightMenu {
-    public static void run(Light[] lights){
+    public static void run(ArrayList<Light> lights){
         Scanner sc = new Scanner(System.in);
         boolean bbb = true;
         while(bbb){

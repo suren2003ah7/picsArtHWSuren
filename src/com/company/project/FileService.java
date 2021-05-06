@@ -5,6 +5,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileService {
     public static void createFolder(String path){
@@ -31,13 +33,13 @@ public class FileService {
         }
     }
 
-    public static String[] readFile(String path){
+    public static List<String> readFile(String path){
         try{
-            return Files.readAllLines(Paths.get(path)).toArray(new String[0]);
+            return Files.readAllLines(Paths.get(path));
         }
         catch (IOException e){
             e.printStackTrace();
         }
-        return new String[]{};
+        return new ArrayList<>();
     }
 }

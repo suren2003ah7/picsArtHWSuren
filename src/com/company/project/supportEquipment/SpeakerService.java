@@ -1,5 +1,6 @@
 package com.company.project.supportEquipment;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SpeakerService {
@@ -8,7 +9,7 @@ public class SpeakerService {
         Speaker s = new Speaker();
 
         System.out.println("Enter the name of the speaker");
-        String name = sc.next();
+        String name = sc.nextLine();
         s.setName(name);
 
         System.out.println("Enter the condition of the speaker (out of order, bad, normal, good, new)");
@@ -34,10 +35,10 @@ public class SpeakerService {
         return s;
     }
 
-    public static Speaker[] convert(String[] s){
-        Speaker[] speakers = new Speaker[s.length];
-        for (int i = 0; i < s.length; i++){
-            String[] temp_string = s[i].split(",");
+    public static ArrayList<Speaker> convert(ArrayList<String> s){
+        ArrayList<Speaker> speakers = new ArrayList<>();
+        for (int i = 0; i < s.size(); i++){
+            String[] temp_string = s.get(i).split(",");
             Speaker temp = new Speaker();
             temp.setName(temp_string[0]);
             temp.setCondition(temp_string[1]);
@@ -45,47 +46,47 @@ public class SpeakerService {
             temp.setWeight(Double.parseDouble(temp_string[3]));
             temp.setSerialCode(temp_string[4]);
             temp.setLoudness(Integer.parseInt(temp_string[5]));
-            speakers[i] = temp;
+            speakers.add(temp);
         }
         return speakers;
     }
-    public static void printAllInfo(Speaker[] speakers){
-        if (speakers == null || speakers.length == 0){
+    public static void printAllInfo(ArrayList<Speaker> speakers){
+        if (speakers == null || speakers.size() == 0){
             System.out.println("There are no speakers");
             return;
         }
-        for (int i = 0; i < speakers.length; i++){
-            speakers[i].info();
+        for (int i = 0; i < speakers.size(); i++){
+            speakers.get(i).info();
         }
     }
 
-    public static void turnAllOn(Speaker[] speakers){
-        if (speakers == null || speakers.length == 0){
+    public static void turnAllOn(ArrayList<Speaker> speakers){
+        if (speakers == null || speakers.size() == 0){
             System.out.println("There are no speakers");
             return;
         }
-        for (int i = 0; i < speakers.length; i++){
-            speakers[i].turnOn();
+        for (int i = 0; i < speakers.size(); i++){
+            speakers.get(i).turnOn();
         }
     }
 
-    public static void turnAllOff(Speaker[] speakers){
-        if (speakers == null || speakers.length == 0){
+    public static void turnAllOff(ArrayList<Speaker> speakers){
+        if (speakers == null || speakers.size() == 0){
             System.out.println("There are no speakers");
             return;
         }
-        for (int i = 0; i < speakers.length; i++){
-            speakers[i].turnOff();
+        for (int i = 0; i < speakers.size(); i++){
+            speakers.get(i).turnOff();
         }
     }
 
-    public static void playAllMusic(Speaker[] speakers){
-        if (speakers == null || speakers.length == 0){
+    public static void playAllMusic(ArrayList<Speaker> speakers){
+        if (speakers == null || speakers.size() == 0){
             System.out.println("There are no speakers");
             return;
         }
-        for (int i = 0; i < speakers.length; i++){
-            speakers[i].playMusic();
+        for (int i = 0; i < speakers.size(); i++){
+            speakers.get(i).playMusic();
         }
     }
 }

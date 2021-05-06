@@ -3,10 +3,11 @@ package com.company.project.menus;
 import com.company.project.supportEquipment.Speaker;
 import com.company.project.supportEquipment.SpeakerService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SpeakerMenu {
-    public static void run(Speaker[] speakers){
+    public static void run(ArrayList<Speaker> speakers){
         Scanner sc = new Scanner(System.in);
         boolean bbb = true;
         while(bbb){

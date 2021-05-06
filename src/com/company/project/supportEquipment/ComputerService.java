@@ -1,4 +1,5 @@
 package com.company.project.supportEquipment;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ComputerService {
@@ -7,7 +8,7 @@ public class ComputerService {
         Computer c = new Computer();
 
         System.out.println("Enter the name of the computer");
-        String name = sc.next();
+        String name = sc.nextLine();
         c.setName(name);
 
         System.out.println("Enter the condition of the computer (out of order, bad, normal, good, new)");
@@ -45,10 +46,10 @@ public class ComputerService {
         return c;
     }
 
-    public static Computer[] convert(String[] s){
-        Computer[] comps = new Computer[s.length];
-        for (int i = 0; i < s.length; i++){
-            String[] temp_string = s[i].split(",");
+    public static ArrayList<Computer> convert(ArrayList<String> s){
+        ArrayList<Computer> comps = new ArrayList<>();
+        for (int i = 0; i < s.size(); i++){
+            String[] temp_string = s.get(i).split(",");
             Computer temp = new Computer();
             temp.setName(temp_string[0]);
             temp.setCondition(temp_string[1]);
@@ -59,38 +60,38 @@ public class ComputerService {
             temp.setRAM(Integer.parseInt(temp_string[6]));
             temp.setMonitorWidth(Double.parseDouble(temp_string[7]));
             temp.setMonitorLength(Double.parseDouble(temp_string[8]));
-            comps[i] = temp;
+            comps.add(temp);
         }
         return comps;
     }
 
-    public static void printAllComputers(Computer[] comps){
-        if (comps == null || comps.length == 0){
+    public static void printAllComputers(ArrayList<Computer> comps){
+        if (comps == null || comps.size() == 0){
             System.out.println("There are no computers");
             return;
         }
-        for (int i = 0; i < comps.length; i++){
-            comps[i].info();
+        for (int i = 0; i < comps.size(); i++){
+            comps.get(i).info();
         }
     }
 
-    public static void turnAllOn(Computer[] comps){
-        if (comps == null || comps.length == 0){
+    public static void turnAllOn(ArrayList<Computer> comps){
+        if (comps == null || comps.size() == 0){
             System.out.println("There are no computers");
             return;
         }
-        for (int i = 0; i < comps.length; i++){
-            comps[i].turnOn();
+        for (int i = 0; i < comps.size(); i++){
+            comps.get(i).turnOn();
         }
     }
 
-    public static void turnAllOff(Computer[] comps){
-        if (comps == null || comps.length == 0){
+    public static void turnAllOff(ArrayList<Computer> comps){
+        if (comps == null || comps.size() == 0){
             System.out.println("There are no computers");
             return;
         }
-        for (int i = 0; i < comps.length; i++){
-            comps[i].turnOff();
+        for (int i = 0; i < comps.size(); i++){
+            comps.get(i).turnOff();
         }
     }
 }

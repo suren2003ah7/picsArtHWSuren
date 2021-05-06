@@ -3,10 +3,11 @@ package com.company.project.menus;
 import com.company.project.ArcadeGame;
 import com.company.project.ArcadeGameService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ArcadeGameMenu {
-    public static void run(ArcadeGame[] games){
+    public static void run(ArrayList<ArcadeGame> games){
         Scanner sc = new Scanner(System.in);
         boolean bbb = true;
         while(bbb){
