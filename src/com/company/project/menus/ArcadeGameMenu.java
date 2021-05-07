@@ -17,7 +17,8 @@ public class ArcadeGameMenu {
             System.out.println("3. Turn off all arcade games");
             System.out.println("4. Play all arcade games");
             System.out.println("5. Print the arcade game with the highest high score");
-            System.out.println("6. Go Back");
+            System.out.println("6. Sort from the oldest to the newest");
+            System.out.println("7. Go Back");
             int k = sc.nextInt();
             switch (k){
                 case 1:
@@ -61,6 +62,14 @@ public class ArcadeGameMenu {
                     }
                     break;
                 case 6:
+                    try{
+                        ArcadeGameService.sortFromOldestToNewest(games);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 7:
                     bbb = false;
                     break;
                 default:

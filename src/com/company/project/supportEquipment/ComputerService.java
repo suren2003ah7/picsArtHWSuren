@@ -1,5 +1,8 @@
 package com.company.project.supportEquipment;
+import com.company.project.ArcadeGame;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ComputerService {
@@ -93,5 +96,28 @@ public class ComputerService {
         for (int i = 0; i < comps.size(); i++){
             comps.get(i).turnOff();
         }
+    }
+
+    public static void viewDiagonalOfComputers(ArrayList<Computer> comps){
+        for (int i = 0; i < comps.size(); i++){
+            System.out.println("Computer number " + (i + 1) + ": " + Math.sqrt(comps.get(i).getMonitorLength()*comps.get(i).getMonitorLength() + comps.get(i).getMonitorWidth()*comps.get(i).getMonitorWidth()));
+        }
+    }
+    public static void sortFromOldestToNewest(ArrayList<Computer> comps){
+        int x = 0;
+        boolean b = true;
+        while(b){
+            b = false;
+            for (int i = 0; i < comps.size() - 1 - x; i++){
+                if (comps.get(i).getYear() > comps.get(i + 1).getYear()){
+                    Computer z = comps.get(i);
+                    comps.set(i, comps.get(i + 1));
+                    comps.set(i + 1, z);
+                    b = true;
+                }
+            }
+            x++;
+        }
+        printAllComputers(comps);
     }
 }

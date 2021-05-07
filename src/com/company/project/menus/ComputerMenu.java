@@ -16,7 +16,9 @@ public class ComputerMenu {
             System.out.println("2. Turn on all the computers");
             System.out.println("3. Turn off all the computers");
             System.out.println("4. View staff info");
-            System.out.println("5. Go Back");
+            System.out.println("5. View diagonals of the computers");
+            System.out.println("6. Sort from the oldest to the newest");
+            System.out.println("7. Go Back");
             int k = sc.nextInt();
             switch (k){
                 case 1:
@@ -52,6 +54,22 @@ public class ComputerMenu {
                     }
                     break;
                 case 5:
+                    try{
+                        ComputerService.viewDiagonalOfComputers(comps);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 6:
+                    try{
+                        ComputerService.sortFromOldestToNewest(comps);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 7:
                     bbb = false;
                     break;
                 default:

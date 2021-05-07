@@ -137,4 +137,22 @@ public class ArcadeGameService {
         }
         arc.info();
     }
+
+    public static void sortFromOldestToNewest(ArrayList<ArcadeGame> games){
+        int x = 0;
+        boolean b = true;
+        while(b){
+            b = false;
+            for (int i = 0; i < games.size() - 1 - x; i++){
+                if (games.get(i).getYear() > games.get(i + 1).getYear()){
+                    ArcadeGame z = games.get(i);
+                    games.set(i, games.get(i + 1));
+                    games.set(i + 1, z);
+                    b = true;
+                }
+            }
+            x++;
+        }
+        printAllGames(games);
+    }
 }

@@ -1,4 +1,4 @@
 bear,Freddy,good,1993,1500,BE87,1.86
-rabbit,Bonny,good,1993,1800,RR69,1.82
-chicken,Chica,good,1993,1450,CC21,1.78
-fox,Foxy,out of order,1993,1200,AR93,1.80
+rabbit,Bonny,good,1992,1800,RR69,1.82
+chicken,Chica,good,1991,1450,CC21,1.78
+fox,Foxy,out of order,1987,1200,AR93,1.80

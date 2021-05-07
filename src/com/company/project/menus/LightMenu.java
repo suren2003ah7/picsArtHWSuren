@@ -15,7 +15,9 @@ public class LightMenu {
             System.out.println("1. View all lights");
             System.out.println("2. Turn on all the lights");
             System.out.println("3. Turn off all the lights");
-            System.out.println("4. Go back");
+            System.out.println("4. Print all the lights with the color you want");
+            System.out.println("5. Sort from the oldest to the newest");
+            System.out.println("6. Go back");
             int k = sc.nextInt();
             switch (k){
                 case 1:
@@ -43,6 +45,24 @@ public class LightMenu {
                     }
                     break;
                 case 4:
+                    try{
+                        System.out.println("Type the color you want to search");
+                        String color = sc.nextLine();
+                        LightService.printAllColourLights(lights, color);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 5:
+                    try{
+                        LightService.sortFromOldestToNewest(lights);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 6:
                     bbb = false;
                     break;
                 default:

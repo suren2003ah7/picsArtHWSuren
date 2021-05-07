@@ -16,7 +16,9 @@ public class SpeakerMenu {
             System.out.println("2. Turn on all the speakers");
             System.out.println("3. Turn off all the speakers");
             System.out.println("4. Play music");
-            System.out.println("5. Go back");
+            System.out.println("5. View the speaker with maximal loudness");
+            System.out.println("6. Sort from the oldest to the newest");
+            System.out.println("7. Go back");
             int k = sc.nextInt();
             switch (k){
                 case 1:
@@ -52,6 +54,22 @@ public class SpeakerMenu {
                     }
                     break;
                 case 5:
+                    try{
+                        SpeakerService.printTheLoudest(speakers);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 6:
+                    try{
+                        SpeakerService.sortFromOldestToNewest(speakers);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 7:
                     bbb = false;
                     break;
                 default:

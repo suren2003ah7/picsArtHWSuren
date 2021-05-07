@@ -20,7 +20,9 @@ public class AnimatronicMenu {
             System.out.println("6. View all rabbits");
             System.out.println("7. View all chickens");
             System.out.println("8. View all foxes");
-            System.out.println("9. Go Back");
+            System.out.println("9. View the highest animatronic");
+            System.out.println("10. Sort animatronics from the oldest to the newest");
+            System.out.println("11. Go Back");
             int k = sc.nextInt();
             switch (k){
                 case 1:
@@ -88,6 +90,22 @@ public class AnimatronicMenu {
                     }
                     break;
                 case 9:
+                    try{
+                        AnimatronicService.viewHighestAnimatronic(anims);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 10:
+                    try{
+                        AnimatronicService.sortFromOldestToNewest(anims);
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("There are no such entities");
+                    }
+                    break;
+                case 11:
                     bbb = false;
                     break;
                 default:

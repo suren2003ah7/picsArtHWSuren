@@ -1,5 +1,7 @@
 package com.company.project.supportEquipment;
 
+import com.company.project.ArcadeGame;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -89,4 +91,39 @@ public class SpeakerService {
             speakers.get(i).playMusic();
         }
     }
+
+    public static void printTheLoudest(ArrayList<Speaker> speakers){
+        if (speakers == null || speakers.size() == 0){
+            System.out.println("There are no games");
+            return;
+        }
+        Speaker maximal = speakers.get(0);
+        for (int i = 1; i < speakers.size(); i++){
+            if (maximal.getLoudness() < speakers.get(i).getLoudness()){
+                Speaker temp = maximal;
+                maximal = speakers.get(i);
+                speakers.set(i, temp);
+            }
+        }
+        maximal.info();
+    }
+
+    public static void sortFromOldestToNewest(ArrayList<Speaker> speakers){
+        int x = 0;
+        boolean b = true;
+        while(b){
+            b = false;
+            for (int i = 0; i < speakers.size() - 1 - x; i++){
+                if (speakers.get(i).getYear() > speakers.get(i + 1).getYear()){
+                    Speaker z = speakers.get(i);
+                    speakers.set(i, speakers.get(i + 1));
+                    speakers.set(i + 1, z);
+                    b = true;
+                }
+            }
+            x++;
+        }
+        printAllInfo(speakers);
+    }
+
 }

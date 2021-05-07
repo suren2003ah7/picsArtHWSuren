@@ -5,6 +5,7 @@ import com.company.project.animatronics.Fox;
 import com.company.project.animatronics.Rabbit;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class AnimatronicService {
@@ -195,5 +196,35 @@ public class AnimatronicService {
                 anims.get(i).info();
             }
         }
+    }
+
+    public static void viewHighestAnimatronic(ArrayList<Animatronic> anims){
+        Animatronic maximal = anims.get(0);
+        for (int i = 1; i < anims.size(); i++){
+            if (maximal.getHeight() < anims.get(i).getHeight()){
+                Animatronic temp = maximal;
+                maximal = anims.get(i);
+                anims.set(i, temp);
+            }
+        }
+        maximal.info();
+    }
+
+    public static void sortFromOldestToNewest(ArrayList<Animatronic> anims){
+        int x = 0;
+        boolean b = true;
+        while(b){
+            b = false;
+            for (int i = 0; i < anims.size() - 1 - x; i++){
+                if (anims.get(i).getYear() > anims.get(i + 1).getYear()){
+                    Animatronic z = anims.get(i);
+                    anims.set(i, anims.get(i + 1));
+                    anims.set(i + 1, z);
+                    b = true;
+                }
+            }
+            x++;
+        }
+        printAllInfo(anims);
     }
 }

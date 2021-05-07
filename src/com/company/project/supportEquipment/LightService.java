@@ -1,5 +1,7 @@
 package com.company.project.supportEquipment;
 
+import com.company.project.ArcadeGame;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -79,5 +81,31 @@ public class LightService {
         for (int i = 0; i < lights.size(); i++){
             lights.get(i).turnOff();
         }
+    }
+
+    public static void printAllColourLights(ArrayList<Light> lights, String color){
+        for (int i = 0; i < lights.size(); i++){
+            if (lights.get(i).getLightColor().equals(color)){
+                lights.get(i).info();
+            }
+        }
+    }
+
+    public static void sortFromOldestToNewest(ArrayList<Light> lights){
+        int x = 0;
+        boolean b = true;
+        while(b){
+            b = false;
+            for (int i = 0; i < lights.size() - 1 - x; i++){
+                if (lights.get(i).getYear() > lights.get(i + 1).getYear()){
+                    Light z = lights.get(i);
+                    lights.set(i, lights.get(i + 1));
+                    lights.set(i + 1, z);
+                    b = true;
+                }
+            }
+            x++;
+        }
+        printAllInfo(lights);
     }
 }
