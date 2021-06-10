@@ -1,0 +1,2 @@
+Main Stage Speaker,new,2021,10,BB18,120
+Second Stage Speaker,new,2021,7,HS01,110
