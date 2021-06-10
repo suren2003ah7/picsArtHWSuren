@@ -10,7 +10,8 @@ public class Lesson1 {
     boolean lovesPicsArt = true;
     float height = 1.8f;
     double mass = 63.5;
-    public void thing(){
+
+    public void thing() {
         System.out.println("Full name, First letter: " + FullName + " , " + firstLetter);
         System.out.println("age, year of birth: " + age + " , " + yob);
         System.out.println("height, mass: " + height + " , " + mass);

@@ -3,13 +3,15 @@ package com.company.lesson2;
 public class Lesson2 {
     int a, b, c, d;
     int[] arr = {3, 9, -9, 29, 0};
-    public Lesson2(int e, int f, int g, int h){
+
+    public Lesson2(int e, int f, int g, int h) {
         a = e;
         b = f;
         c = g;
         d = h;
     }
-    public void things(){
+
+    public void things() {
         int sum = a + b + c + d;
         double mean = sum / (double) 4;
         int prod = a * b * c * d;
@@ -17,20 +19,17 @@ public class Lesson2 {
         System.out.println(a & b);
         System.out.println(a | b);
         System.out.println(a ^ b);
-        if (a > b){
+        if (a > b) {
             System.out.println("a is bigger than b");
-        }
-        else if(a < b){
+        } else if (a < b) {
             System.out.println("a is smaller than b");
-        }
-        else{
+        } else {
             System.out.println("a is equal to b");
         }
 
-        if (b >= c && a < d || c >= a && b <= d){
+        if (b >= c && a < d || c >= a && b <= d) {
             System.out.println("yah");
-        }
-        else{
+        } else {
             System.out.println("nah");
         }
         System.out.println(a > 7 ? "yes" : "no");
