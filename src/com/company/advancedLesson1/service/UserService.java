@@ -1,4 +1,6 @@
-package com.company.advancedLesson1;
+package com.company.advancedLesson1.service;
+
+import com.company.advancedLesson1.model.User;
 
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;

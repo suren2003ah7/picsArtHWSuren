@@ -1,4 +1,4 @@
-package com.company.advancedLesson1;
+package com.company.advancedLesson1.model;
 
 import java.io.Serializable;
 
