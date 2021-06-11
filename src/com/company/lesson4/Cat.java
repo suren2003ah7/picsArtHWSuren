@@ -47,7 +47,7 @@ public class Cat {
         isHungry = hungry;
     }
 
-    public void speak(){
+    public void speak() {
         System.out.println();
         System.out.println("Meow");
         System.out.println();
