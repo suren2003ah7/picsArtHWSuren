@@ -3,6 +3,10 @@ package com.company.advancedLesson1;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
+    public User() {
+    }
+
     private String username;
     private int year;
 
@@ -25,5 +29,13 @@ public class User implements Serializable {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", year=" + year +
+                '}';
     }
 }
