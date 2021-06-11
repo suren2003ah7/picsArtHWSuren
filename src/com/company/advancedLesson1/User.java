@@ -4,15 +4,17 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    public User() {
-    }
-
     private String username;
     private int year;
+    private final static long serialVersionUID = 89352654593591L;
 
     public User(String username, int year) {
         this.username = username;
         this.year = year;
+    }
+
+    public User() {
+
     }
 
     public String getUsername() {
