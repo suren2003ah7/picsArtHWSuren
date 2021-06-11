@@ -7,27 +7,55 @@ import java.io.*;
 public class UserService {
 
     public static void serializeUser(User user){
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
         try {
-            FileOutputStream fos = new FileOutputStream("user");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            fos = new FileOutputStream("user");
+            oos = new ObjectOutputStream(fos);
             oos.writeObject(user);
-            oos.close();
-            fos.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                if (oos != null)
+                oos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (fos != null)
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     public static User deserializeUser(){
         User user = null;
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
         try {
-            FileInputStream fis = new FileInputStream("user");
-            ObjectInputStream ois = new ObjectInputStream(fis);
+            fis = new FileInputStream("user");
+            ois = new ObjectInputStream(fis);
             user = (User) ois.readObject();
-            ois.close();
-            fis.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+        finally {
+            try {
+                if (ois != null)
+                ois.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                if (fis != null)
+                fis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return user;
     }
